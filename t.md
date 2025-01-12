@@ -20,21 +20,24 @@ sequenceDiagram
    User->>Browser:Enter text as input
    User->>Browser: SAVE it
    Browser->>Server: POST /exampleapp/new_note
-   Server -->>Browser: POST 302 redirect to /exampleapp/notes
+   activate Server 
+   Server -->>Browser: POST 302 Redirect to /exampleapp/notes
+   deactivate Server
    Browser->>Server: GET /exampleapp/notes
-   Server-->>Browser: update notes page HTML
-     deactivat
-   Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+   activate Server
+   Server-->>Browser: update HTML document
+   deactivate Server
+   Browser->>Server: GET /exampleapp/main.css
    activate Server
    Server-->>Browser: the css file
    deactivate Server
-   Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+   Browser->>Server: GET /exampleapp/main.js
    activate Server
    Server-->>Browser: the JavaScript file
    deactivate Server
-   Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+   Browser->>Server: /exampleapp/data.json
    activate Server
-   Server-->>Browser: the Json file
+   Server-->>Browser: the JSON file
    deactivate Server
   
    
